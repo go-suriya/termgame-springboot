@@ -17,4 +17,12 @@ public interface UserMapper {
   @Mapping(source = "point", target = "point")
   UserEntity toUserEntity(UserCreateDto userCreateDto);
 
+
+  @Mapping(source = "username", target = "username")
+  @Mapping(source = "firstName", target = "firstName")
+  @Mapping(source = "lastName", target = "lastName")
+  @Mapping(source = "phoneNumber", target = "phoneNumber")
+  @Mapping(source = "point", target = "point")
+  UserEntity prepareUserEntity(UserEntity userEntity);
+
 }
