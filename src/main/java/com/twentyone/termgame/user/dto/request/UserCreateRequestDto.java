@@ -1,13 +1,17 @@
-package com.twentyone.termgame.user.dto;
+package com.twentyone.termgame.user.dto.request;
 
 import java.math.BigDecimal;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
-public class UserCreateDto {
+@NoArgsConstructor
+@AllArgsConstructor
+public class UserCreateRequestDto {
 
   @NotBlank(message = "username is required")
   @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")

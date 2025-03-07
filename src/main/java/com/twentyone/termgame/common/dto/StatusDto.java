@@ -1,4 +1,4 @@
-package com.twentyone.termgame.common.model.dto;
+package com.twentyone.termgame.common.dto;
 
 import lombok.Builder;
 import lombok.Data;

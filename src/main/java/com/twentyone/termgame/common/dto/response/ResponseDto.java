@@ -1,4 +1,4 @@
-package com.twentyone.termgame.common.model.dto;
+package com.twentyone.termgame.common.dto.response;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
@@ -9,14 +9,10 @@ import lombok.Data;
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResponseDto<T> {
-
-    // private StatusDto status;
-    
     private Boolean result;
-    private String message;
     private int statusCode;
+    private String message;
     private T data;
     private T error;
-
 }
 

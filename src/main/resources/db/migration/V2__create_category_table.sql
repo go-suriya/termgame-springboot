@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS "category" (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    description VARCHAR(255),
+    image VARCHAR(255),
+    status VARCHAR,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    created_by VARCHAR(255) DEFAULT 'SYSTEM',
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(255) DEFAULT 'SYSTEM'
+)

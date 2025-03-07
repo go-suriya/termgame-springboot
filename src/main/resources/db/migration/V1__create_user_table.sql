@@ -5,5 +5,9 @@ CREATE TABLE IF NOT EXISTS "users" (
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
     phone_number VARCHAR(10) UNIQUE,
-    point decimal(10,2) NOT NULL DEFAULT 0.00
+    point decimal(10,2) NOT NULL DEFAULT 0.00,
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+    created_by VARCHAR(255) DEFAULT 'SYSTEM',
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(255) DEFAULT 'SYSTEM'
 );

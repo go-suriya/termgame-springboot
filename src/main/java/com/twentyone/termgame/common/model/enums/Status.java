@@ -1,6 +1,6 @@
 package com.twentyone.termgame.common.model.enums;
 
-import com.twentyone.termgame.common.model.dto.StatusDto;
+import com.twentyone.termgame.common.dto.StatusDto;
 
 import lombok.Getter;
 

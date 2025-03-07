@@ -6,9 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.twentyone.termgame.common.exception.CommonException;
 import com.twentyone.termgame.common.exception.CustomException;
-import com.twentyone.termgame.user.dto.UserCreateDto;
+import com.twentyone.termgame.user.dto.request.UserCreateRequestDto;
+import com.twentyone.termgame.user.dto.response.UserCreateResponseDto;
 import com.twentyone.termgame.user.mapper.UserMapper;
 import com.twentyone.termgame.user.model.entity.UserEntity;
 import com.twentyone.termgame.user.repository.UserRepository;
@@ -26,7 +26,7 @@ public class CreateUserServiceImpl implements CreateUserService {
 
     @Override
     @Transactional
-    public UserEntity createUser(UserCreateDto body) throws CommonException {
+    public UserCreateResponseDto createUser(UserCreateRequestDto body) throws CustomException {
         try {
             Optional<UserEntity> optionalUser = userRepository.findByUsername(body.getUsername());
 
@@ -35,8 +35,12 @@ public class CreateUserServiceImpl implements CreateUserService {
             }
 
             var prepareUser = userMapper.toUserEntity(body);
+            prepareUser.setCreatedBy(body.getUsername());
+
             var newUser = userRepository.save(prepareUser);
-            return userMapper.prepareUserEntity(newUser);
+            var responseUserDto = userMapper.userEntityToUserCreateResponseDto(newUser);
+
+            return responseUserDto;
         } catch (Exception e) {
             System.out.println("Logging error: " + e);
             throw e;
